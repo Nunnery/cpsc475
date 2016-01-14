@@ -15,6 +15,19 @@ allprojects {
     repositories {
         jcenter()
     }
+
+    ext {
+        buildVersionCode = { version ->
+            def majorMinorBuild = version.substring(0, version.indexOf("-")).tokenize(".")
+            def vCode = 0;
+            def powerOfTen = 1;
+            majorMinorBuild.reverse().eachWithIndex() { obj, i -> (vCode += (obj.toInteger() * powerOfTen)); powerOfTen *= 1000; }
+
+            logger.info("Build version code [" + vCode + "] from version name [" + version + "].")
+
+            return vCode;
+        }
+    }
 }
 
 task clean(type: Delete) {
