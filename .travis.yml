@@ -1,4 +1,9 @@
 language: android
+android:
+  components:
+  - android-21
+  - platform-tools
+  - tools
 addons:
   artifacts: true
   s3_region: us-east-1
