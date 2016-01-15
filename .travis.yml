@@ -1,7 +1,7 @@
 language: android
 android:
   components:
-  - build-tools-23.0.2
+  - build-tools-23.0.1
   - android-23
   - android-21
   - platform-tools
@@ -12,6 +12,7 @@ deploy:
   secret_access_key:
     secure: r30z0i92PMN3cXEIpjJFOv75RvuQLB43a1lk7ZO4GhwSIDTI3YwiBxDpQjyENzGJl9xr9Dp8JFOw8fbnRaD1KFVDb2zV/eDzBYmXcOSum1CCYBEMPM0bqBd/l3C8+CClWQKZ3rigGGPPrPHmb0wbYMLAHUk749d9NxM+SDYD1rytBDwJRhh5OKghTNYYMymvbBbJeIAEjdSDe7t3eHZcFujbdst0vlAiPMbvyJ7lz6hNzpTz+eNUH9ZO+s0JvSmM8sNGav/SHrDBYqY0GjFWVb/8PeG8mrqh/6628mDGl852k3Cuu1cXK7L/IJ1ueEs7pyaqp8p3dqy04Qx2ePbbVO+EVXAym8tGtPimupik+7KEDxWiUnJoUzx5lh7SXPApsLzeKpVC6v4Is7awi51nkbln9FieNCdYZ+qdz18M93sPcUCG/VRjrAqeQOuZ5/fTf46ASHs2KxctMMkkoRGxbxeawH7KqlFCzC1uhIUAwgiAsMrQxyAPj9+oVfueU7bO3MsrwcVcOAKSD0CCWjfh83QwlIRunUwfdfDRPAhg7wMAq02k/ZWVxETUpEmHeXe7tWcB+poYkw0tdZYw8GhyTuRwRkxxvU9l4AzwxAJkX0R4uB6osXUQq1LylmSZE4acJNQOwomGIx+b3yE6XefzYEZPtfuW7Bhv+1epjosHRFY=
   bucket: cpsc475
+  local-dir: assignment1/build/outputs/apk
   upload-dir: travis-builds
   acl: bucket_owner_full_control
   on:

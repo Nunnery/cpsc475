@@ -3,7 +3,7 @@ apply plugin: 'com.github.hierynomus.license'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         applicationId "com.tealcube.cpsc475.assignment1"
@@ -11,6 +11,7 @@ android {
         targetSdkVersion 23
         versionName ("1.0.0-" + (System.getenv('BUILD_NUMBER') ?: '0'))
         versionCode buildVersionCode(versionName)
+        archivesBaseName = "$project.name-$versionCode"
     }
     buildTypes {
         release {
