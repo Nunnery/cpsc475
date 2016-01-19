@@ -37,7 +37,7 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/cost_per_play"
                         android:id="@+id/cost_to_play" android:layout_weight="1" android:layout_gravity="left"
-                        android:autoText="false" android:password="false" android:gravity="center" android:textStyle="bold"/>
+                        android:gravity="center" android:textStyle="bold"/>
                 <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
