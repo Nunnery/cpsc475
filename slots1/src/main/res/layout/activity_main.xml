@@ -31,7 +31,7 @@
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" android:id="@+id/top_layout"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true" android:gravity="top">
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -63,21 +63,22 @@
     </LinearLayout>
     <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/flowers_layout"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/top_layout">
         <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/flower_1" android:src="@drawable/f1" android:layout_weight="1"
                 android:contentDescription="@string/flower1"/>
         <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/flower_2" android:src="@drawable/f2" android:layout_weight="1"
                 android:contentDescription="@string/flower2"/>
-        <ImageView android:layout_width="match_parent"
-                   android:layout_height="match_parent"
+        <ImageView android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
                    android:id="@+id/flower_3" android:src="@drawable/f3" android:layout_weight="1"
                    android:contentDescription="@string/flower3"/>
     </LinearLayout>
