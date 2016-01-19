@@ -42,8 +42,19 @@ public final class Constants {
      */
     public static final int COST_PER_SPIN = 1;
 
+    /**
+     * Represents the amount players gain for matching 0 flowers.
+     */
+    public static final int MATCH_0 = -1;
+
+    /**
+     * Represents the amount players gain for matching 2 flowers.
+     */
     public static final int MATCH_2 = 2;
 
+    /**
+     * Represents the amount players gain for matching 3 flowers.
+     */
     public static final int MATCH_3 = 3;
 
     private Constants() {
