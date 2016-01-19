@@ -27,37 +27,58 @@
         tools:context="com.tealcube.slots1.MainActivity" android:background="@drawable/flowers3"
         android:id="@+id/base_layout">
 
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" android:id="@+id/top_layout"
+            android:layout_centerHorizontal="true">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/cost_per_play"
+                android:id="@+id/cost_to_play" android:layout_weight="1" android:layout_gravity="left"
+                android:gravity="center" android:textStyle="bold"/>
         <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" android:id="@+id/top_layout">
-                <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="@string/cost_per_play"
-                        android:id="@+id/cost_to_play" android:layout_weight="1" android:layout_gravity="left"
-                        android:gravity="center" android:textStyle="bold"/>
-                <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" android:id="@+id/winnings_layout"
-                        android:layout_gravity="right" android:layout_weight="1">
-                        <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:textAppearance="?android:attr/textAppearanceMedium"
-                                android:text="@string/match_0"
-                                android:id="@+id/match_0" android:layout_weight="1" android:gravity="center"
-                                android:textStyle="bold"/>
-                        <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-                                  android:textAppearance="?android:attr/textAppearanceMedium" android:text="@string/match_2"
-                                  android:id="@+id/match_2" android:layout_weight="1"
-                                  android:gravity="center" android:textStyle="bold"/>
-                        <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-                                  android:textAppearance="?android:attr/textAppearanceMedium" android:text="@string/match_3"
-                                  android:id="@+id/match_3" android:layout_weight="1" android:gravity="center"
-                                  android:textStyle="bold"/>
-                </LinearLayout>
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:id="@+id/winnings_layout"
+                android:layout_gravity="right" android:layout_weight="1">
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/match_0"
+                    android:id="@+id/match_0" android:layout_weight="1" android:gravity="center"
+                    android:textStyle="bold"/>
+            <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:textAppearance="?android:attr/textAppearanceMedium" android:text="@string/match_2"
+                      android:id="@+id/match_2" android:layout_weight="1"
+                      android:gravity="center" android:textStyle="bold"/>
+            <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:textAppearance="?android:attr/textAppearanceMedium" android:text="@string/match_3"
+                      android:id="@+id/match_3" android:layout_weight="1" android:gravity="center"
+                      android:textStyle="bold"/>
         </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" android:id="@+id/flowers_layout"
+            android:layout_centerHorizontal="true">
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/flower_1" android:src="@drawable/f1" android:layout_weight="1"
+                android:contentDescription="@string/flower1"/>
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/flower_2" android:src="@drawable/f2" android:layout_weight="1"
+                android:contentDescription="@string/flower2"/>
+        <ImageView android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/flower_3" android:src="@drawable/f3" android:layout_weight="1"
+                   android:contentDescription="@string/flower3"/>
+    </LinearLayout>
 </RelativeLayout>
