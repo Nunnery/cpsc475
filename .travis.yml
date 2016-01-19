@@ -6,6 +6,10 @@ android:
   - android-21
   - platform-tools
   - tools
+  - extra-google-google_play_services
+  - extra-google-m2repository
+  - extra-android-m2repository
+  - addon-google_apis-google-19
 deploy:
   provider: s3
   access_key_id: AKIAJX2DBEAHVF6ERQRQ
