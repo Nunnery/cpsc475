@@ -65,30 +65,58 @@
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" android:id="@+id/flowers_layout"
-            android:layout_below="@+id/top_layout" android:layout_centerHorizontal="true">
+            android:layout_below="@+id/top_layout" android:layout_centerHorizontal="true"
+            android:layout_alignParentEnd="false" android:layout_marginTop="40dp">
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/flower_1" android:src="@drawable/f1" android:layout_weight="1"
-                android:contentDescription="@string/flower1" android:scaleType="fitStart"/>
+                android:contentDescription="@string/flower_1" android:scaleType="fitCenter" android:adjustViewBounds="true"/>
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/flower_2" android:src="@drawable/f2" android:layout_weight="1"
-                android:contentDescription="@string/flower2" android:scaleType="fitStart"/>
+                android:contentDescription="@string/flower_2" android:scaleType="fitCenter" android:adjustViewBounds="true"/>
         <ImageView android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:id="@+id/flower_3" android:src="@drawable/f3" android:layout_weight="1"
-                   android:contentDescription="@string/flower3" android:scaleType="fitStart"/>
+                   android:contentDescription="@string/flower_3" android:scaleType="fitCenter"
+                   android:adjustViewBounds="true"/>
     </LinearLayout>
-    <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/go_layout" android:layout_centerHorizontal="true"
-            android:layout_below="@+id/flowers_layout">
-        <ImageButton
-                android:layout_width="match_parent"
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" android:id="@+id/go_layout" android:layout_below="@+id/flowers_layout"
+            android:layout_marginTop="40dp">
+        <ImageView
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/go_button" android:src="@drawable/go" android:background="@null"
-                android:contentDescription="@string/gobutton"/>
-    </FrameLayout>
+                android:id="@+id/go_button" android:contextClickable="false" android:contentDescription="@string/go_button"
+                android:src="@drawable/go"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/info_layout"
+            android:layout_alignParentBottom="true" android:gravity="center"
+            android:layoutMode="opticalBounds" android:longClickable="false" android:measureWithLargestChild="false">
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/dollar_icon" android:contentDescription="@string/dollar_icon" android:src="@drawable/dol"
+                android:layout_weight="1" android:adjustViewBounds="true"
+                android:cropToPadding="false"/>
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/dollar_amount" android:layout_weight="2" android:text="@string/dollar_text"
+                android:gravity="center"/>
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/reset_button" android:src="@drawable/reset1" android:layout_weight="1"
+                android:contentDescription="@string/reset_button"
+                android:adjustViewBounds="true" android:clickable="true"/>
+    </LinearLayout>
 </RelativeLayout>

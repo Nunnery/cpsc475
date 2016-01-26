@@ -20,8 +20,11 @@
     <string name="match_0">Match 0 - lose $1</string>
     <string name="match_2">Match 2 - win $2</string>
     <string name="match_3">Match 3 - win $3</string>
-    <string name="flower1">The first flower that spins</string>
-    <string name="flower2">The second flower that spins</string>
-    <string name="flower3">The third flower that spins</string>
-    <string name="gobutton">The button that says go</string>
+    <string name="flower_1">The first flower that spins</string>
+    <string name="flower_2">The second flower that spins</string>
+    <string name="flower_3">The third flower that spins</string>
+    <string name="go_button">The button that says go</string>
+    <string name="dollar_icon">The icon with a dollar sign on it</string>
+    <string name="dollar_text">REPLACE ME</string>
+    <string name="reset_button">The button that resets everything</string>
 </resources>
