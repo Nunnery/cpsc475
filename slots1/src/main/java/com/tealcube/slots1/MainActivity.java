@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageView flower1View;
     private ImageView flower2View;
     private ImageView flower3View;
-    private ImageView goButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         flower1View = (ImageView) findViewById(R.id.flower_1);
         flower2View = (ImageView) findViewById(R.id.flower_2);
         flower3View = (ImageView) findViewById(R.id.flower_3);
-        goButton = (ImageView) findViewById(R.id.go_button);
+        ImageView goButton = (ImageView) findViewById(R.id.go_button);
         goButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
