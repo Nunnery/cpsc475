@@ -23,4 +23,5 @@
     <string name="flower1">The first flower that spins</string>
     <string name="flower2">The second flower that spins</string>
     <string name="flower3">The third flower that spins</string>
+    <string name="gobutton">The button that says go</string>
 </resources>

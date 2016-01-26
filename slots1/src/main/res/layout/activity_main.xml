@@ -63,23 +63,32 @@
     </LinearLayout>
     <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content" android:id="@+id/flowers_layout"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/top_layout">
+            android:layout_below="@+id/top_layout" android:layout_centerHorizontal="true">
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/flower_1" android:src="@drawable/f1" android:layout_weight="1"
-                android:contentDescription="@string/flower1"/>
+                android:contentDescription="@string/flower1" android:scaleType="fitStart"/>
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/flower_2" android:src="@drawable/f2" android:layout_weight="1"
-                android:contentDescription="@string/flower2"/>
+                android:contentDescription="@string/flower2" android:scaleType="fitStart"/>
         <ImageView android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:id="@+id/flower_3" android:src="@drawable/f3" android:layout_weight="1"
-                   android:contentDescription="@string/flower3"/>
+                   android:contentDescription="@string/flower3" android:scaleType="fitStart"/>
     </LinearLayout>
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/go_layout" android:layout_centerHorizontal="true"
+            android:layout_below="@+id/flowers_layout">
+        <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/go_button" android:src="@drawable/go" android:background="@null"
+                android:contentDescription="@string/gobutton"/>
+    </FrameLayout>
 </RelativeLayout>
