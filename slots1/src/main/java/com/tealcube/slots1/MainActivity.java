@@ -28,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private static final Random RANDOM = new Random();
-    private static final int NUMBER_OF_FLOWERS = 3;
 
     private ImageView flower1View;
     private ImageView flower2View;
     private ImageView flower3View;
+    private int moneyInTheBank = Constants.STARTING_SPINS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                        flower1View.setImageResource(getFlower(RANDOM.nextInt(NUMBER_OF_FLOWERS)));
-                        flower2View.setImageResource(getFlower(RANDOM.nextInt(NUMBER_OF_FLOWERS)));
-                        flower3View.setImageResource(getFlower(RANDOM.nextInt(NUMBER_OF_FLOWERS)));
+                        flower1View.setImageResource(getFlower(RANDOM.nextInt(Constants.NUMBER_OF_FLOWERS)));
+                        flower2View.setImageResource(getFlower(RANDOM.nextInt(Constants.NUMBER_OF_FLOWERS)));
+                        flower3View.setImageResource(getFlower(RANDOM.nextInt(Constants.NUMBER_OF_FLOWERS)));
                         Log.d(TAG, "ending animation");
                     }
 
