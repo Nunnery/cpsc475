@@ -16,56 +16,81 @@ package com.tealcube.slots1;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity implements Animation.AnimationListener {
+import java.util.Random;
 
-    private Animation rotationAnimation;
+public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
+    private static final Random RANDOM = new Random();
+    private static final int NUMBER_OF_FLOWERS = 3;
+
     private ImageView flower1View;
     private ImageView flower2View;
     private ImageView flower3View;
-    private boolean startedSpin = false;
+    private ImageView goButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rotationAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
-        rotationAnimation.setAnimationListener(this);
-
         flower1View = (ImageView) findViewById(R.id.flower_1);
         flower2View = (ImageView) findViewById(R.id.flower_2);
         flower3View = (ImageView) findViewById(R.id.flower_3);
+        goButton = (ImageView) findViewById(R.id.go_button);
+        goButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+                animation.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                        if (flower1View != null) {
+                            flower1View.setImageResource(R.drawable.tmp);
+                        }
+                        if (flower2View != null) {
+                            flower2View.setImageResource(R.drawable.tmp);
+                        }
+                        if (flower3View != null) {
+                            flower3View.setImageResource(R.drawable.tmp);
+                        }
+                        Log.d(TAG, "starting animation");
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        flower1View.setImageResource(getFlower(RANDOM.nextInt(NUMBER_OF_FLOWERS)));
+                        flower2View.setImageResource(getFlower(RANDOM.nextInt(NUMBER_OF_FLOWERS)));
+                        flower3View.setImageResource(getFlower(RANDOM.nextInt(NUMBER_OF_FLOWERS)));
+                        Log.d(TAG, "ending animation");
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+                flower1View.startAnimation(animation);
+                flower2View.startAnimation(animation);
+                flower3View.startAnimation(animation);
+            }
+        });
     }
 
-    public void startSpin(View view) {
-        if (flower1View != null) {
-            flower1View.startAnimation(rotationAnimation);
+    protected int getFlower(int i) {
+        switch (i) {
+            case 1:
+                return R.drawable.f1;
+            case 2:
+                return R.drawable.f2;
+            default:
+                return R.drawable.f3;
         }
-        if (flower2View != null) {
-            flower2View.startAnimation(rotationAnimation);
-        }
-        if (flower3View != null) {
-            flower3View.startAnimation(rotationAnimation);
-        }
-    }
-
-    @Override
-    public void onAnimationStart(Animation animation) {
-        // we ain't doing shit
-    }
-
-    @Override
-    public void onAnimationEnd(Animation animation) {
-        // we ain't doing shit
-    }
-
-    @Override
-    public void onAnimationRepeat(Animation animation) {
-        // we ain't doing shit
     }
 }
