@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     private ImageView flower1View;
     private ImageView flower2View;
     private ImageView flower3View;
+    private boolean startedSpin = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +42,16 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         flower3View = (ImageView) findViewById(R.id.flower_3);
     }
 
-    public void doAnimate(View view) {
-        view.startAnimation(rotationAnimation);
+    public void startSpin(View view) {
+        if (flower1View != null) {
+            flower1View.startAnimation(rotationAnimation);
+        }
+        if (flower2View != null) {
+            flower2View.startAnimation(rotationAnimation);
+        }
+        if (flower3View != null) {
+            flower3View.startAnimation(rotationAnimation);
+        }
     }
 
     @Override
