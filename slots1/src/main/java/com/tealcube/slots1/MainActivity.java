@@ -16,11 +16,47 @@ package com.tealcube.slots1;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Animation.AnimationListener {
+
+    private Animation rotationAnimation;
+    private ImageView flower1View;
+    private ImageView flower2View;
+    private ImageView flower3View;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        rotationAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+        rotationAnimation.setAnimationListener(this);
+
+        flower1View = (ImageView) findViewById(R.id.flower_1);
+        flower2View = (ImageView) findViewById(R.id.flower_2);
+        flower3View = (ImageView) findViewById(R.id.flower_3);
+    }
+
+    public void doAnimate(View view) {
+        view.startAnimation(rotationAnimation);
+    }
+
+    @Override
+    public void onAnimationStart(Animation animation) {
+        // we ain't doing shit
+    }
+
+    @Override
+    public void onAnimationEnd(Animation animation) {
+        // we ain't doing shit
+    }
+
+    @Override
+    public void onAnimationRepeat(Animation animation) {
+        // we ain't doing shit
     }
 }
