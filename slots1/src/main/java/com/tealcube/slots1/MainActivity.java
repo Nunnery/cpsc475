@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.dollar_amount)).setText(getString(R.string.dollar_text, moneyInTheBank));
 
         final ImageView resetButton = (ImageView) findViewById(R.id.reset_button);
+        final ImageView goButton = (ImageView) findViewById(R.id.go_button);
+
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,13 +59,15 @@ public class MainActivity extends AppCompatActivity {
                 flower3View.setImageResource(R.drawable.f3);
 
                 ((TextView) findViewById(R.id.dollar_amount)).setText(getString(R.string.dollar_text, moneyInTheBank));
+
                 resetButton.setVisibility(View.INVISIBLE);
                 resetButton.setClickable(false);
+                goButton.setVisibility(View.VISIBLE);
+                goButton.setClickable(true);
 
                 Log.d(TAG, "resets on resets");
             }
         });
-        ImageView goButton = (ImageView) findViewById(R.id.go_button);
         goButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (moneyInTheBank <= Constants.MINIMUM_SPINS) {
                     Log.d(TAG, "money in the bank is less than minimum spins");
+                    goButton.setVisibility(View.INVISIBLE);
+                    goButton.setClickable(false);
                     return;
                 }
                 moneyInTheBank = Math.max(moneyInTheBank - Constants.COST_PER_SPIN, Constants.MINIMUM_SPINS);
@@ -113,6 +119,12 @@ public class MainActivity extends AppCompatActivity {
                         moneyInTheBank = Math.max(moneyInTheBank, Constants.MINIMUM_SPINS);
 
                         ((TextView) findViewById(R.id.dollar_amount)).setText(getString(R.string.dollar_text, moneyInTheBank));
+
+                        if (moneyInTheBank <= Constants.MINIMUM_SPINS) {
+                            Log.d(TAG, "money in the bank is less than minimum spins");
+                            goButton.setVisibility(View.INVISIBLE);
+                            goButton.setClickable(false);
+                        }
 
                         flower1View.setImageResource(getFlower(flower1Int));
                         flower2View.setImageResource(getFlower(flower2Int));
