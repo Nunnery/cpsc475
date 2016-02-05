@@ -64,9 +64,24 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                        flower1View.setImageResource(getFlower(RANDOM.nextInt(Constants.NUMBER_OF_FLOWERS)));
-                        flower2View.setImageResource(getFlower(RANDOM.nextInt(Constants.NUMBER_OF_FLOWERS)));
-                        flower3View.setImageResource(getFlower(RANDOM.nextInt(Constants.NUMBER_OF_FLOWERS)));
+                        int flower1Int = RANDOM.nextInt(Constants.NUMBER_OF_FLOWERS);
+                        int flower2Int = RANDOM.nextInt(Constants.NUMBER_OF_FLOWERS);
+                        int flower3Int = RANDOM.nextInt(Constants.NUMBER_OF_FLOWERS);
+
+                        if (flower1Int == flower2Int && flower2Int == flower3Int) {
+                            // all three match
+                            moneyInTheBank += Constants.MATCH_3;
+                        } else if (flower1Int == flower2Int || flower2Int == flower3Int || flower1Int == flower3Int) {
+                            // two match
+                            moneyInTheBank += Constants.MATCH_2;
+                        } else {
+                            // no match
+                            moneyInTheBank += Constants.MATCH_0;
+                        }
+
+                        flower1View.setImageResource(getFlower(flower1Int));
+                        flower2View.setImageResource(getFlower(flower2Int));
+                        flower3View.setImageResource(getFlower(flower3Int));
                         Log.d(TAG, "ending animation");
                     }
 
