@@ -75,15 +75,15 @@ public class MainActivity extends AppCompatActivity {
                     resetButton.setVisibility(View.VISIBLE);
                     resetButton.setClickable(true);
                 }
+                moneyInTheBank = Math.max(moneyInTheBank - Constants.COST_PER_SPIN, Constants.MINIMUM_SPINS);
+                ((TextView) findViewById(R.id.dollar_amount)).setText(getString(R.string.dollar_text, moneyInTheBank));
+                Log.d(TAG, "taking money from the spinner");
                 if (moneyInTheBank <= Constants.MINIMUM_SPINS) {
                     Log.d(TAG, "money in the bank is less than minimum spins");
                     goButton.setVisibility(View.INVISIBLE);
                     goButton.setClickable(false);
                     return;
                 }
-                moneyInTheBank = Math.max(moneyInTheBank - Constants.COST_PER_SPIN, Constants.MINIMUM_SPINS);
-                ((TextView) findViewById(R.id.dollar_amount)).setText(getString(R.string.dollar_text, moneyInTheBank));
-                Log.d(TAG, "taking money from the spinner");
                 Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
                 animation.setAnimationListener(new Animation.AnimationListener() {
                     @Override
