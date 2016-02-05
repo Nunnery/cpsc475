@@ -23,7 +23,7 @@ allprojects {
             def powerOfTen = 1;
             majorMinorBuild.reverse().eachWithIndex() { obj, i -> (vCode += (obj.toInteger() * powerOfTen)); powerOfTen *= 1000; }
 
-            logger.info("Build version code [" + vCode + "] from version name [" + version + "].")
+            logger.info("Build version code [${vCode}] from version name [${version}].")
 
             return vCode;
         }
