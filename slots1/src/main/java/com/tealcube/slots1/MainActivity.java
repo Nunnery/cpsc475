@@ -75,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
                     Log.d(TAG, "money in the bank is less than minimum spins");
                     return;
                 }
+                moneyInTheBank = Math.max(moneyInTheBank - Constants.COST_PER_SPIN, Constants.MINIMUM_SPINS);
+                ((TextView) findViewById(R.id.dollar_amount)).setText(getString(R.string.dollar_text, moneyInTheBank));
+                Log.d(TAG, "taking money from the spinner");
                 Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
                 animation.setAnimationListener(new Animation.AnimationListener() {
                     @Override
