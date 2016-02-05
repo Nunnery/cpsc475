@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.Random;
 
@@ -42,10 +43,32 @@ public class MainActivity extends AppCompatActivity {
         flower1View = (ImageView) findViewById(R.id.flower_1);
         flower2View = (ImageView) findViewById(R.id.flower_2);
         flower3View = (ImageView) findViewById(R.id.flower_3);
+
+        ((TextView) findViewById(R.id.dollar_amount)).setText(getString(R.string.dollar_text, moneyInTheBank));
+
+        final ImageView resetButton = (ImageView) findViewById(R.id.reset_button);
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moneyInTheBank = Constants.STARTING_SPINS;
+
+                flower1View.setImageResource(R.drawable.f1);
+                flower2View.setImageResource(R.drawable.f2);
+                flower3View.setImageResource(R.drawable.f3);
+
+                ((TextView) findViewById(R.id.dollar_amount)).setText(getString(R.string.dollar_text, moneyInTheBank));
+                resetButton.setVisibility(View.INVISIBLE);
+                resetButton.setClickable(false);
+            }
+        });
         ImageView goButton = (ImageView) findViewById(R.id.go_button);
         goButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (resetButton.getVisibility() == View.INVISIBLE) {
+                    resetButton.setVisibility(View.VISIBLE);
+                    resetButton.setClickable(true);
+                }
                 Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
                 animation.setAnimationListener(new Animation.AnimationListener() {
                     @Override
@@ -79,9 +102,12 @@ public class MainActivity extends AppCompatActivity {
                             moneyInTheBank += Constants.MATCH_0;
                         }
 
+                        ((TextView) findViewById(R.id.dollar_amount)).setText(getString(R.string.dollar_text, moneyInTheBank));
+
                         flower1View.setImageResource(getFlower(flower1Int));
                         flower2View.setImageResource(getFlower(flower2Int));
                         flower3View.setImageResource(getFlower(flower3Int));
+
                         Log.d(TAG, "ending animation");
                     }
 
