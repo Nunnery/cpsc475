@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
                 ((TextView) findViewById(R.id.dollar_amount)).setText(getString(R.string.dollar_text, moneyInTheBank));
                 resetButton.setVisibility(View.INVISIBLE);
                 resetButton.setClickable(false);
+
+                Log.d(TAG, "resets on resets");
             }
         });
         ImageView goButton = (ImageView) findViewById(R.id.go_button);
@@ -68,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
                 if (resetButton.getVisibility() == View.INVISIBLE) {
                     resetButton.setVisibility(View.VISIBLE);
                     resetButton.setClickable(true);
+                }
+                if (moneyInTheBank <= Constants.MINIMUM_SPINS) {
+                    Log.d(TAG, "money in the bank is less than minimum spins");
+                    return;
                 }
                 Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
                 animation.setAnimationListener(new Animation.AnimationListener() {
@@ -82,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
                         if (flower3View != null) {
                             flower3View.setImageResource(R.drawable.tmp);
                         }
-                        Log.d(TAG, "starting animation");
                     }
 
                     @Override
@@ -107,8 +112,6 @@ public class MainActivity extends AppCompatActivity {
                         flower1View.setImageResource(getFlower(flower1Int));
                         flower2View.setImageResource(getFlower(flower2Int));
                         flower3View.setImageResource(getFlower(flower3Int));
-
-                        Log.d(TAG, "ending animation");
                     }
 
                     @Override
@@ -119,6 +122,8 @@ public class MainActivity extends AppCompatActivity {
                 flower1View.startAnimation(animation);
                 flower2View.startAnimation(animation);
                 flower3View.startAnimation(animation);
+
+                Log.d(TAG, "spin to win");
             }
         });
     }
