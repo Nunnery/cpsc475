@@ -110,6 +110,8 @@ public class MainActivity extends AppCompatActivity {
                             moneyInTheBank += Constants.MATCH_0;
                         }
 
+                        moneyInTheBank = Math.max(moneyInTheBank, Constants.MINIMUM_SPINS);
+
                         ((TextView) findViewById(R.id.dollar_amount)).setText(getString(R.string.dollar_text, moneyInTheBank));
 
                         flower1View.setImageResource(getFlower(flower1Int));
